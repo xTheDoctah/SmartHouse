@@ -1,20 +1,64 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container-fluid">
+  <div class=" jumbotron-fluid ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+      <a class="navbar-brand" href="#">Smart House</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Temperature</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Meteo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <h1>Smart House</h1>
+    <h5>To make your House Smart!</h5>
+    <!--<i class="material-icons">
+      wb_sunny
+      wb_cloudy
+      grain
+      filter_drama
+    </i>
+    <br>-->
+    <i class="wi wi-fw wi-day-sunny"></i>
+    <i class="wi wi-day-rain"></i>
+    <i class="wi wi-day-lightning"></i>
+    <i class="wi wi-day-cloudy"></i>
+
+  </div>
+
+  <div class="container">
+    <button (click)="currentTemp()" class="btn btn-primary btn-sm">Temperature Correnti</button>
+    <button (click)="Tempo()" class="btn btn-primary btn-sm">Tempo</button>
+    <div *ngIf="show1">
+      Temp: {{temp.temp}}<i class="wi wi-celsius"></i> <br>
+      Umidità: {{temp.humidity}}<i class="wi wi-humidity"></i><br>
+      Pressione: {{temp.pressure}}<i class="wi wi-barometer"></i>
+      <hr>
+
+    </div>
+    <div *ngIf="show">
+      Temp: {{tempo.main.temp}}<i class="wi wi-celsius"></i> <br>
+      Temp min: {{tempo.main.temp_min}}<i class="wi wi-celsius"></i><br>
+      Temp Max: {{tempo.main.temp_max}}<i class="wi wi-celsius"></i><br>
+      Umidità: {{tempo.main.humidity}}
+
+
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
 
