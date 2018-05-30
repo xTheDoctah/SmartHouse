@@ -33,8 +33,12 @@ public class ParserClass {
 
     public static int roomAmount() {
         try {
-            CSVReader csvReader = new CSVReader(Files.newBufferedReader(Paths.get(CommonsValue.ROOM_LIST_CSV)));
-            return csvReader.readAll().size();
+            if (Files.exists(CommonsValue.ROOM_LIST_CSV_PATH)) {
+                CSVReader csvReader = new CSVReader(Files.newBufferedReader(CommonsValue.ROOM_LIST_CSV_PATH));
+                return csvReader.readAll().size();
+            }else{
+                Files.createFile(CommonsValue.ROOM_LIST_CSV_PATH);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -43,12 +47,14 @@ public class ParserClass {
 
     public static List<String[]> roomList() {
         try {
-            CSVReader csvReader = new CSVReader(Files.newBufferedReader(Paths.get(CommonsValue.ROOM_LIST_CSV)));
-            List<String[]> roomList = csvReader.readAll();
-            for (String[] record : roomList) {
-                //System.out.println(record[0].toString());
+            if (Files.exists(CommonsValue.ROOM_LIST_CSV_PATH)) {
+                CSVReader csvReader = new CSVReader(Files.newBufferedReader(Paths.get(CommonsValue.ROOM_LIST_CSV)));
+                List<String[]> roomList = csvReader.readAll();
+                for (String[] record : roomList) {
+                    //System.out.println(record[0].toString());
+                }
+                return roomList;
             }
-            return roomList;
         } catch (IOException e) {
             e.printStackTrace();
         }
