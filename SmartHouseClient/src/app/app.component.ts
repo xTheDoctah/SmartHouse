@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Temperatura} from "./temperatura";
-import {Main} from "./main";
+import {HttpClient} from '@angular/common/http';
+import {Main} from './main';
+import {Temperatura} from './temperatura';
+
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,7 @@ export class AppComponent {
     this.temp.pressure = Math.floor(Math.random() * 100);
     this.temp.temp_min = Math.floor(Math.random() * 100);
     this.temp.temp_max = Math.floor(Math.random() * 100);
-    return this.http.post("http://localhost:8080/settemp", this.temp)
+    return this.http.post('http://localhost:8080/settemp', this.temp)
       .subscribe(
 
       );
@@ -33,7 +34,7 @@ export class AppComponent {
   Tempo() {
 
     if (this.show == null || this.show == false) {
-      return this.http.get<Temperatura>("http://api.openweathermap.org/data/2.5/weather?zip=00128,IT&APPID=1bc26fa2e22f8e38030d246ebc0b767d")
+      return this.http.get<Temperatura>('http://api.openweathermap.org/data/2.5/weather?zip=00128,IT&APPID=1bc26fa2e22f8e38030d246ebc0b767d')
         .subscribe(
           risposta => {
             this.tempo = risposta;
@@ -53,7 +54,7 @@ export class AppComponent {
 
   currentTemp() {
     if (this.show1 == null || this.show1 == false) {
-      return this.http.get<Main>("http://localhost:8080/currenttemp")
+      return this.http.get<Main>('http://localhost:8080/currenttemp')
         .subscribe(
           risposta => {
             this.temp = risposta;
