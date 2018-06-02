@@ -1,5 +1,5 @@
-<p>
-  Temp: {{temp.temp}}<i class="wi wi-celsius"></i> <br>
-  Umidità: {{temp.humidity}}<i class="wi wi-humidity"></i><br>
-  Pressione: {{temp.pressure}}<i class="wi wi-barometer"></i>
+<p *ngFor="let heroes of temp.temperatureDTOS ">
+  Temp: {{heroes.id}}<i class="wi wi-celsius"></i> <br>
+  Umidità: {{heroes.humidity}}<i class="wi wi-humidity"></i><br>
+  Pressione: {{heroes.pressure}}<i class="wi wi-barometer"></i>
 </p>

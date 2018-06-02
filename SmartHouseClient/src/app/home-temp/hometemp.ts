@@ -1,4 +1,5 @@
-export class Main2 {
+export class HomeTemp {
+  id: number;
   temp: number;
   pressure: number;
   humidity: number;

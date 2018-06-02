@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Main} from '../main';
 import {HttpClient} from '@angular/common/http';
+import {tempDTOS} from './tempDTOS';
 
 @Component({
   selector: 'app-home-temp',
@@ -8,14 +9,17 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./home-temp.component.css']
 })
 export class HomeTempComponent implements OnInit {
-  temp: Main = new Main();
-  constructor(private http: HttpClient) { }
+  temp: tempDTOS = new tempDTOS();
+
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit() {
-    this.http.get<Main>('http://localhost:8080/currenttemp?id=0')
+    this.http.get<Main>('http://localhost:8080/alltemps')
       .subscribe(
         risposta => {
           this.temp = risposta;
+          console.log(this.temp.temperatureDTOS[2]);
         }
       );
   }
