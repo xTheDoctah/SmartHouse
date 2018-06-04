@@ -1,0 +1,30 @@
+.custom-card {
+  box-sizing: content-box;
+
+}
+
+.spinner-1:before {
+  color: white;
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  height: 10px;
+  width: 10px;
+  margin-top: -30px;
+  margin-left: -30px;
+  border-radius: 50%;
+  border: 3px solid lightgray;
+  border-top-color: rgba(230, 126, 34, 1.0);
+  border-left-color: rgba(39, 174, 96, 1.0);
+  border-bottom-color: rgba(41, 128, 185, 1.0);
+  border-right-color: rgba(211, 84, 0, 1.0);
+  animation: spinner 0.7s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

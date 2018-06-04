@@ -28,11 +28,9 @@ public class ListTemperatureDTO extends DtoBase {
     /*Preload empty element into the array*/
     public void init() {
         TemperatureDTO temperatureDTO = new TemperatureDTO(0,0,0,0);
-        System.out.println("INIT: " + CommonsValue.ROOM_AMOUNT);
         for (int i = 0; i < CommonsValue.ROOM_AMOUNT; i++) {
             temperatureDTOS.add(temperatureDTO);
         }
-        System.out.println("INIT 2:" + temperatureDTOS.size());
         temperatureDTO = null;
     }
 }

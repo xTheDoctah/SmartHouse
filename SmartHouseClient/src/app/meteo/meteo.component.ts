@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Temperatura} from '../temperatura';
+import {Temperatura} from './MeteoDTO/temperatura';
 import {HttpClient} from '@angular/common/http';
 
 @Component({

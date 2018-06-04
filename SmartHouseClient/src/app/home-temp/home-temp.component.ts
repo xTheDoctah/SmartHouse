@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Main} from '../main';
 import {HttpClient} from '@angular/common/http';
-import {tempDTOS} from './tempDTOS';
+import {tempDTOS} from './HomeTempDTO/tempDTOS';
 
 @Component({
   selector: 'app-home-temp',
@@ -15,13 +14,25 @@ export class HomeTempComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get<Main>('http://localhost:8080/alltemps')
+    this.http.get<tempDTOS>('http://localhost:8080/alltemps')
       .subscribe(
         risposta => {
           this.temp = risposta;
-          console.log(this.temp.temperatureDTOS[2]);
+        }
+      );
+    this.testData();
+  }
+
+  testData() {
+    this.http.get('http://localhost:8080/testdata')
+      .subscribe(
+      );
+
+    this.http.get<tempDTOS>('http://localhost:8080/alltemps')
+      .subscribe(
+        risposta => {
+          this.temp = risposta;
         }
       );
   }
-
 }

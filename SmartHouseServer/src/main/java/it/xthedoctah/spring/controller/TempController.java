@@ -43,4 +43,11 @@ public class TempController {
         ParserClass.jsonToCsv(this.temp.getRoomTemp(id), params, CommonsValue.TEMP_LIST_CSV);
     }
 
+    @RequestMapping(value = "/testdata")
+    public void setTestData() {
+        for (int i = 0; i < CommonsValue.ROOM_AMOUNT; i++) {
+            this.temp.modifyTemp(i, Math.round(Math.random() * 10), Math.round(Math.random() * 10), 10);//FIXME: Take only 2 dec.
+        }
+    }
+
 }
