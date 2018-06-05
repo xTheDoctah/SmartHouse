@@ -9,30 +9,30 @@ import {tempDTOS} from './HomeTempDTO/tempDTOS';
 })
 export class HomeTempComponent implements OnInit {
   temp: tempDTOS = new tempDTOS();
+  status = false;
+  host = 'localhost';
 
   constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
-    this.http.get<tempDTOS>('http://localhost:8080/alltemps')
-      .subscribe(
-        risposta => {
-          this.temp = risposta;
-        }
-      );
     this.testData();
   }
 
-  testData() {
-    this.http.get('http://localhost:8080/testdata')
-      .subscribe(
-      );
-
-    this.http.get<tempDTOS>('http://localhost:8080/alltemps')
+  requestData() {
+    this.http.get<tempDTOS>('http://' + this.host + ':8080/alltemps')
       .subscribe(
         risposta => {
           this.temp = risposta;
+          this.status = true;
         }
       );
+  }
+
+  testData() {
+    this.http.get('http://' + this.host + ':8080/testdata')
+      .subscribe(
+      );
+    this.requestData();
   }
 }

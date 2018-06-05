@@ -1,11 +1,16 @@
 <br>
-<div class="row">
-  <div class="col-md-4 col-lg-2 col-xl-2 col-sm-4" *ngFor="let c of temp.temperatureDTOS">
-    <div class="custom-card spinner-1">
-      {{c.idStanza}}<br>
-      {{c.temp}}<br>
-      {{c.humidity}}<br>
-      {{c.pressure}}
+<div class="warning" *ngIf="!status">
+  <span class="spinner-2">
+  </span>
+
+</div>
+<div class="row" *ngIf="status">
+  <div class="col-md-4 col-lg-2 col-xl-2 col-sm-4 custom-card " *ngFor="let c of temp.temperatureDTOS">
+    <div class="custom-card">
+      <label>Stanza numero: </label> {{c.idStanza}}<br>
+      <label>Temperatura: </label> {{c.temp}}<br>
+      <label>Umidità: </label> {{c.humidity}}<br>
+      <label>Pressione: </label> {{c.pressure}}
       <hr>
     </div>
   </div>
